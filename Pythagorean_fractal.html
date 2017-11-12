@@ -25,7 +25,7 @@
         var pythagorean_theta_right = 90 - pythagorean_theta_left;
 
         // drawing Square
-        function drawSquare(pos1, pos2, pos3, pos4, theta, length) {
+        function drawSquare(pos1, pos2, pos3, pos4) {
             context.moveTo(pos1.x, pos1.y);
             context.lineTo(pos2.x, pos2.y);
 
@@ -42,6 +42,7 @@
         // drawing fractal
         function drawPythagorean(pos1, theta, length, depth) {
             if (depth !== 0) {
+                // generate vertex of Square from stating point pos1
                 var pos2 = {
                     x: pos1.x + length * Math.cos(theta * deg_to_rad),
                     y: pos1.y - length * Math.sin(theta * deg_to_rad)
@@ -56,7 +57,7 @@
                 };
 
                 // drawing part
-                drawSquare(pos1, pos2, pos3, pos4, theta, length);
+                drawSquare(pos1, pos2, pos3, pos4);
 
                 // recursive part
                 var theta_for_left = theta + pythagorean_theta_left;
