@@ -95,7 +95,7 @@ function drawtreeright(x1,y1,length,order){
       //context.lineTo(x3,y3);
       //context.lineTo(x4,y4);
       //context.lineTo(x5,y5);
-      //context.lineTo(x2,y2);//ÀÌ 5ÁÙ Áö¿ì´Ï±î ÇØ°á!
+      //context.lineTo(x2,y2);//Ã€ÃŒ 5ÃÃ™ ÃÃ¶Â¿Ã¬Â´ÃÂ±Ã® Ã‡Ã˜Â°Ã¡!
       drawhorn(x1,y1,x3,y3,n-1);
       drawhorn(x3,y3,x4,y4,n-1);
       drawhorn(x4,y4,x5,y5,n-1);
