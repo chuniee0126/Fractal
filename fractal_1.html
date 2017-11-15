@@ -13,9 +13,8 @@ context.lineWidth = 1;
 var deg_to_rad = Math.PI / 180.0;
 var depth = 3;
 
-
-function drawhorn(x1,y1,x2,y2,n){
-   var x3=x1+(x2-x1)/3.0;
+function drawhorn(x1,y1,x2,y2,order){
+    var x3=x1+(x2-x1)/3.0;
     var x4=((x1+x2)/2+Math.sqrt(3)/6.0*(y1-y2));
     var x5=x1+(x2-x1)*2.0/3.0;
     var y3=y1+(y2-y1)/3.0;
@@ -31,19 +30,18 @@ function drawhorn(x1,y1,x2,y2,n){
       //context.lineTo(x4,y4);
       //context.lineTo(x5,y5);
       //context.lineTo(x2,y2);//�� 5�� �����ϱ� �ذ�!
-      drawhorn(x1,y1,x3,y3,n-1);
-      drawhorn(x3,y3,x4,y4,n-1);
-      drawhorn(x4,y4,x5,y5,n-1);
-      drawhorn(x5,y5,x2,y2,n-1);
+      drawhorn(x1,y1,x3,y3,order-1);
+      drawhorn(x3,y3,x4,y4,order-1);
+      drawhorn(x4,y4,x5,y5,order-1);
+      drawhorn(x5,y5,x2,y2,order-1);
     }
 }
 
-function drawstar(x1,y1,x2,y2,x3,y3,n){
-   drawhorn(x1,y1,x2,y2,n);
-    drawhorn(x2,y2,x3,y3,n);
-    drawhorn(x3,y3,x1,y1,n);
+function drawstar(x1,y1,x2,y2,x3,y3,order){
+    drawhorn(x1,y1,x2,y2,order);
+    drawhorn(x2,y2,x3,y3,order);
+    drawhorn(x3,y3,x1,y1,order);
 }
-
 
 context.beginPath();
 drawstar(100,400,500,400,300,400-200*Math.sqrt(3),depth);
